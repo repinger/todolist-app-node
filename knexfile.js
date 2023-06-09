@@ -6,22 +6,15 @@ require('dotenv').config()
  */
 module.exports = {
 
-  development: {
-    client: process.env.DB_CLIENT,
-    connection: {
-      host: process.env.DB_HOST,
-      user: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      timezone: 'utc',
-      charset: 'utf8mb4'
-    },
-    port: process.env.DB_PORT,
+  production: {
+    client: 'pg',
+    connection: `postgres://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`,
+    ssl: true,
     migrations: {
       directory: './src/databases/migrations'
     },
     seeds: {
       directory: './src/databases/seeds'
     }
-  }
+  }
 };
