@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 require('dotenv').config()
 
@@ -8,6 +9,7 @@ const app = express();
 const userRouter = require('./src/routes/users');
 const todoListRouter = require('./src/routes/todolists');
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
