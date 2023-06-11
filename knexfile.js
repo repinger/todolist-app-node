@@ -8,8 +8,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: `postgres://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`,
-    ssl: true,
+    connection: `postgres://${process.env.DB_USERNAME_PROD}:${process.env.DB_PASSWORD_PROD}@${process.env.DB_HOST_PROD}/${process.env.DB_NAME_PROD}?ssl=true`,
     migrations: {
       directory: './src/databases/migrations'
     },
@@ -20,10 +19,10 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host: process.env.DB_HOST,
-      database: process.env.DB_NAME,
-      user:     process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD
+      host: process.env.DB_HOST_DEV,
+      database: process.env.DB_NAME_DEV,
+      user:     process.env.DB_USERNAME_DEV,
+      password: process.env.DB_PASSWORD_DEV
     },
     migrations: {
       directory: './src/databases/migrations'
