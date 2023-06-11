@@ -46,8 +46,12 @@ module.exports = {
     },
     deleteUser: async (req, res) => {
         const { uuid } = req.params
-        const user = await knex('users').where('uuid', uuid).del()
-        if (user.length == 0) return res.status(400).json({message: 'Failed Delete User'})
+        const user = await knex('users').where('uuid', uuid).first()
+        if (!user) return res.status(404).json({message: 'User Not Found'})
+        const todolist_user = await knex('todolists').where('user_id', user.id).del()
+        if (todolist_user.length == 0) return res.status(400).json({message: 'Failed Delete User'})
+        const user_delete = await knex('users').where('uuid', uuid).del()
+        if (user_delete.length == 0) return res.status(400).json({message: 'Failed Delete User'})
         return res.status(200).json({message: 'Success Delete User'})
     }
 }
