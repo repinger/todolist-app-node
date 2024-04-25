@@ -18,6 +18,12 @@ module.exports = {
         if (user.length == 0) return res.status(400).json({message: 'Failed Create User'})
         return res.status(200).json({message: 'Success Create User'})
     },
+    getUserByID: async (req, res) => {
+        const { user_id } = req.params;
+        const user = await knex('users').where('id', user_id).first();
+        if (!user) return res.status(404).json({ message: 'User Not Found' });
+        return res.status(200).json({ data: user });
+    },
     getsUser: async (req, res) => {
         const user = await knex('users')
         if (user.length == 0) return res.status(404).json({message: 'User is Empty'})
