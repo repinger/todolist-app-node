@@ -30,7 +30,7 @@ Credits by Muhammad Ilham Adi Pratama
 2. Ketikan Perintah Berikut
 
 ```
-git clone https://github.com/UKM-SoftDev/todolist-app-node.git
+git clone https://github.com/repinger/todolist-app-node.git
 ```
 
 3. Masuk Ke Dalam Folder Hasil Clone
@@ -42,8 +42,8 @@ cd todolist-app-node
 # How to Use and Configuration Node JS Express
 
 1. Install Node Package Manager Terlebih Dahulu <br>
-   [Download disini](https://nodejs.org/en/download/)
-2. Install all javascript dependecies Terlebih Dahulu
+   [Download di sini](https://nodejs.org/en/download/)
+2. Install all Javascript dependecies Terlebih Dahulu
 
 ```
 $ npm install
@@ -52,7 +52,7 @@ $ npm install
 3. Copy isi file .env.example
 
 ```
-cp .env.example .env
+$ cp .env.example .env
 ```
 
 5. Buatlah database kosong di phpmyadmin dengan nama **todolist**
@@ -71,4 +71,4 @@ $ npm run start
 
 ## API Documentation
 
-You can access this project API documentation [here](https://documenter.getpostman.com/view/21604420/2s93JzMLtp)
+You can access this project API documentation [here](https://documenter.getpostman.com/view/34518852/2sA3BrZr5N)
