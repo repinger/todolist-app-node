@@ -1,0 +1,20 @@
+name: "todolist_node"
+
+services:
+  todolist:
+    container_name: todolist
+    hostname: todolist
+    depends_on:
+      - db
+    build:
+      context: .
+    ports:
+      - 127.0.0.1:3000:3000
+
+  db:
+    image: mariadb:latest
+    container_name: db_todolist
+    hostname: db
+    environment:
+      MARIADB_DATABASE: todolist
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: true
